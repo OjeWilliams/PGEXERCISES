@@ -30,8 +30,19 @@ AND membercost < ((1/50.0) * monthlymaintenance);
 SELECT * FROM cd.facilities
 WHERE name LIKE '%Tennis%' ;
 ```
+\
 6.How can you retrieve the details of facilities with ID 1 and 5? Try to do it without using the OR operator.
 ```
 SELECT * FROM cd.facilities
 WHERE facid IN (1,5) ;
+```
+\
+7.How can you produce a list of facilities, with each labelled as 'cheap' or 'expensive' depending on if their monthly maintenance cost is more than $100? Return the name and monthly maintenance of the facilities in question.
+```
+SELECT name,
+CASE
+	WHEN monthlymaintenance > 100 THEN 'expensive'
+	ELSE 'cheap'
+END AS COST
+FROM cd.facilities;
 ```
