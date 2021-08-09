@@ -30,8 +30,8 @@ AND membercost < ((1/50.0) * monthlymaintenance);
 SELECT * FROM cd.facilities
 WHERE name LIKE '%Tennis%' ;
 ```
-6.
+6.How can you retrieve the details of facilities with ID 1 and 5? Try to do it without using the OR operator.
 ```
 SELECT * FROM cd.facilities
-WHERE name LIKE '%Tennis%' ;
+WHERE facid IN (1,5) ;
 ```
