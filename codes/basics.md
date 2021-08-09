@@ -24,3 +24,14 @@ SELECT facid, name, membercost, monthlymaintenance FROM cd.facilities
 WHERE membercost > 0
 AND membercost < ((1/50.0) * monthlymaintenance);
 ```
+\
+5.How can you produce a list of all facilities with the word 'Tennis' in their name?
+```
+SELECT * FROM cd.facilities
+WHERE name LIKE '%Tennis%' ;
+```
+6.
+```
+SELECT * FROM cd.facilities
+WHERE name LIKE '%Tennis%' ;
+```
