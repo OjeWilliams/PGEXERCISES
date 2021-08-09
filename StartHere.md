@@ -1,5 +1,7 @@
 These questions were attempted in pgAdmin4 using Postgresql.
 \
+You can get the file [here](https://github.com/OjeWilliams/PGEXERCISES/blob/main/data/clubdata.sql) or
+\
 First we created the required tables using:
 
 ```
