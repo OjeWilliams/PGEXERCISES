@@ -67,7 +67,7 @@ LIMIT 10 ;
 \
 10.You, for some reason, want a combined list of all surnames and all facility names. Yes, this is a contrived example :-). Produce that list!
 ```
-SELECT DISTINCT(surname) FROM cd.members
-ORDER BY surname
-LIMIT 10 ;
+SELECT surname from cd.members
+UNION 
+SELECT name FROM cd.facilities  ;
 ```
