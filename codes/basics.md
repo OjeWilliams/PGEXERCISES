@@ -48,7 +48,7 @@ FROM cd.facilities;
 ```
 \
 8.How can you produce a list of members who joined after the start of September 2012? Return the memid, surname, firstname, and joindate of the members in question.
-I used `SELECT NOW()` to check how it dealt with timepstamp and then formatted the requested date accordingly
+\ I used `SELECT NOW()` to check how it dealt with timepstamp and then formatted the requested date accordingly
 ```
 SELECT memid, surname, firstname, joindate
 FROM cd.members
