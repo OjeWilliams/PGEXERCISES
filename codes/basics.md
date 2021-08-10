@@ -1,4 +1,4 @@
-All questions can be found [here.](https://pgexercises.com/questions/basic/)
+All questions can be found [here.](https://pgexercises.com/questions/basic/) <br>
 \
 1.How can you retrieve all the information from the cd.facilities table?
 
@@ -58,6 +58,14 @@ WHERE joindate >= '2012-09-01';
 
 \
 9.How can you produce an ordered list of the first 10 surnames in the members table? The list must not contain duplicates.
+```
+SELECT DISTINCT(surname) FROM cd.members
+ORDER BY surname
+LIMIT 10 ;
+```
+
+\
+10.You, for some reason, want a combined list of all surnames and all facility names. Yes, this is a contrived example :-). Produce that list!
 ```
 SELECT DISTINCT(surname) FROM cd.members
 ORDER BY surname
