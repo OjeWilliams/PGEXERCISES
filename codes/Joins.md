@@ -32,6 +32,27 @@ AND fac.name LIKE 'Tennis%'
 ORDER BY book.starttime;
 ```
 
+\
+3. How can you output a list of all members who have recommended another member? Ensure that there are no duplicates in the list, and that results are ordered by (surname, firstname).
+```
+-- Used subquery and inner join
+SELECT DISTINCT(A.firstname) AS firstname, A.surname AS surname
+FROM (SELECT Anames.firstname, Anames.surname FROM cd.members AS Anames
+	  JOIN cd.members AS Bnames on
+	  Anames.memid = Bnames.recommendedby
+	   ) AS A
+ORDER BY A.surname, A.firstname ;
+
+OR
+-- no subquery
+SELECT DISTINCT(Anames.firstname) AS firstname, Anames.surname AS surname
+FROM cd.members AS Anames
+	  JOIN cd.members AS Bnames on
+	  Anames.memid = Bnames.recommendedby
+ORDER BY Anames.surname, Anames.firstname ;
+```
+ 
+
 
 
 
