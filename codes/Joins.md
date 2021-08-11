@@ -52,6 +52,8 @@ FROM cd.members AS Anames
 	  Anames.memid = Bnames.recommendedby
 ORDER BY Anames.surname, Anames.firstname ;
 ```
+\
+4.How can you output a list of all members, including the individual who recommended them (if any)? Ensure that results are ordered by (surname, firstname).
  
 
 
