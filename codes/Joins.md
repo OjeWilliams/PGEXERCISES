@@ -61,7 +61,7 @@ SELECT
 FROM cd.members AS A
 LEFT OUTER JOIN cd.members AS B
 ON B.memid = A.recommendedby
-ORDER BY memfname, memsname  ;
+ORDER BY memsname, memfname ;
 ```
  
 
