@@ -27,7 +27,8 @@ JOIN cd.facilities AS fac
 ON book.facid = fac.facid
 WHERE book.starttime >= '2012-09-21'
 AND book.starttime < '2012-09-22'
-AND fac.name IN ('Tennis Court 1', 'Tennis Court 2')
+AND fac.name LIKE 'Tennis%'
+-- AND fac.name IN ('Tennis Court 1', 'Tennis Court 2') this should also work
 ORDER BY book.starttime;
 ```
 
