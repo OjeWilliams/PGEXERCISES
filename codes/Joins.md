@@ -44,6 +44,7 @@ FROM (SELECT Anames.firstname, Anames.surname FROM cd.members AS Anames
 ORDER BY A.surname, A.firstname ;
 
 OR
+
 -- no subquery
 SELECT DISTINCT(Anames.firstname) AS firstname, Anames.surname AS surname
 FROM cd.members AS Anames
