@@ -122,19 +122,21 @@ ORDER BY member ;
 How can you produce a list of bookings on the day of 2012-09-14 which will cost the member (or guest) more than $30? Remember that guests have different costs to members (the listed costs are per half-hour 'slot'), and the guest user is always ID 0. Include in your output the name of the facility, the name of the member formatted as a single column, and the cost. Order by descending cost.
 ```
 -- this one also a little tricky remember to use distinct and be careful with the subquery
-
-SELECT DISTINCT CONCAT(mem.firstname,' ',mem.surname) AS member,
-   (SELECT CONCAT(recos.firstname,' ',recos.surname) AS recommender	   
-    FROM cd.members AS recos
-	WHERE recos.memid = mem.recommendedby
-	)
-FROM cd.members AS mem
-ORDER BY member ;
+SELECT member, facility, cost 
+FROM ( -- this should set up member facility and cost appropriately
+	SELECT CONCAT(mem.firstname,' ',mem.surname) AS member, fac.name AS facility,
+	CASE WHEN mem.memid = 0 THEN fac.guestcost * book.slots
+     	     ELSE fac.membercost * book.slots
+	END AS cost
+  	FROM cd.members AS mem
+  	JOIN cd. bookings AS book ON mem.memid = book.memid
+  	JOIN cd.facilities AS fac ON book.facid = fac.facid
+  	WHERE book.starttime >= '2012-09-14' AND book.starttime < '2012-09-15'  
+     ) AS costly
+-- now I can just filter by the cost amount we desire then order it in descending
+WHERE cost > 30
+ORDER BY cost DESC ;
 ```
-
-
-
-
 
 
 
