@@ -66,13 +66,21 @@ ORDER BY memsname, memfname ;
 \
 5.How can you produce a list of all members who have used a tennis court? Include in your output the name of the court, and the name of the member formatted as a single column. Ensure no duplicate data, and order by the member name followed by the facility name.
 ```
-SELECT 
-    A.firstname AS memFname, A.surname AS memSname,
-	B.firstname AS recFname, B.surname AS recSname
-FROM cd.members AS A
-LEFT OUTER JOIN cd.members AS B
-ON B.memid = A.recommendedby
-ORDER BY memsname, memfname ;
+-- First attempt
+SELECT DISTINCT firstname ||' '|| surname AS member, name
+FROM cd.members
+JOIN cd.bookings ON cd.members.memid = cd.bookings.memid
+JOIN cd.facilities ON cd.bookings.facid = cd.facilities.facid
+WHERE name LIKE 'Tennis%'
+ORDER BY member, name;
+
+--more careful attempt
+SELECT DISTINCT CONCAT(mem.firstname,' ',mem.surname) AS member, fac.name
+FROM cd.members AS mem
+JOIN cd.bookings AS book ON mem.memid = book.memid
+JOIN cd.facilities AS fac ON book.facid = fac.facid
+WHERE name LIKE 'Tennis%'
+ORDER BY member, name;
 ```
  
 
