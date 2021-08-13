@@ -63,6 +63,17 @@ LEFT OUTER JOIN cd.members AS B
 ON B.memid = A.recommendedby
 ORDER BY memsname, memfname ;
 ```
+\
+5.How can you produce a list of all members who have used a tennis court? Include in your output the name of the court, and the name of the member formatted as a single column. Ensure no duplicate data, and order by the member name followed by the facility name.
+```
+SELECT 
+    A.firstname AS memFname, A.surname AS memSname,
+	B.firstname AS recFname, B.surname AS recSname
+FROM cd.members AS A
+LEFT OUTER JOIN cd.members AS B
+ON B.memid = A.recommendedby
+ORDER BY memsname, memfname ;
+```
  
 
 
