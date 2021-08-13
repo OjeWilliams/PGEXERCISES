@@ -103,7 +103,17 @@ AND (mem.memid = 0 AND fac.guestcost * book.slots >30
 	 )
 ORDER BY cost DESC;
 ```
- 
+\
+7.How can you output a list of all members, including the individual who recommended them (if any), without using any joins? Ensure that there are no duplicates in the list, and that each firstname + surname pairing is formatted as a column and ordered.
+```
+SELECT 
+    A.firstname AS memFname, A.surname AS memSname,
+	B.firstname AS recFname, B.surname AS recSname
+FROM cd.members AS A
+LEFT OUTER JOIN cd.members AS B
+ON B.memid = A.recommendedby
+ORDER BY memsname, memfname ;
+```
 
 
 
