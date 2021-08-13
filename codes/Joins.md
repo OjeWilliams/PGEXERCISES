@@ -87,15 +87,21 @@ ORDER BY member, name;
 6.How can you produce a list of bookings on the day of 2012-09-14 which will cost the member (or guest) more than $30? Remember that guests have different costs to members (the listed costs are per half-hour 'slot'), and the guest user is always ID 0. Include in your output the name of the facility, the name of the member formatted as a single column, and the cost. Order by descending cost, and do not use any subqueries.
 
 ```
--- almost forgoit about slots, which involved how many half an hors sessions they booked
+-- almost forgot about slots, which involved how many half an hour sessions they booked and remember we need costs greater than 30
+-- this one was more involved since we had to do some calcs but alos had to select our requirements carefully with no subqueries
 
 SELECT CONCAT(mem.firstname,' ',mem.surname) AS member, fac.name AS facility,
-CASE WHEN mem.memid = 0 THEN 
+CASE WHEN mem.memid = 0 THEN fac.guestcost * book.slots
+     ELSE fac.membercost * book.slots
+END AS cost
 FROM cd.members AS mem
 JOIN cd.bookings AS book ON mem.memid = book.memid
 JOIN cd.facilities AS fac ON book.facid = fac.facid
 WHERE book.starttime >= '2012-09-14' AND book.starttime < '2012-09-15' 
-;
+AND (mem.memid = 0 AND fac.guestcost * book.slots >30 
+	 OR mem.memid != 0 AND fac.membercost * book.slots >30 
+	 )
+ORDER BY cost DESC;
 ```
  
 
