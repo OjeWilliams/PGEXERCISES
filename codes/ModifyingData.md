@@ -8,6 +8,10 @@ INSERT INTO cd.facilities(
   facid, name, membercost, guestcost, initialoutlay, monthlymaintenance
                           )
 VALUES (9, 'Spa', 20, 30, 100000, 800) ;
+
+-- if you are putting a value into each column you could have jsut done this
+INSERT INTO cd.facilities VALUES (9, 'Spa', 20, 30, 100000, 800) ;
+
 ```
 \
 2.How can you produce a list of the start times for bookings for tennis courts, for the date '2012-09-21'? Return a list of start time and facility name pairings, ordered by the time.
