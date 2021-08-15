@@ -40,7 +40,7 @@ INSERT INTO cd.facilities
 SELECT (SELECT MAX(facid) + 1 FROM cd.facilities), 'Spa', 20, 30, 100000, 800 ;
 ```
 \
-4.How can you output a list of all members, including the individual who recommended them (if any)? Ensure that results are ordered by (surname, firstname).
+4.We made a mistake when entering the data for the second tennis court. The initial outlay was 10000 rather than 8000: you need to alter the data to fix the error.
 ```
 SELECT 
     A.firstname AS memFname, A.surname AS memSname,
