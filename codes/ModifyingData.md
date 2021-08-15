@@ -51,21 +51,15 @@ WHERE cd.facilities.facid = 1 ;
 \
 5.We want to increase the price of the tennis courts for both members and guests. Update the costs to be 6 for members, and 30 for guests.
 ```
--- First attempt
-SELECT DISTINCT firstname ||' '|| surname AS member, name
-FROM cd.members
-JOIN cd.bookings ON cd.members.memid = cd.bookings.memid
-JOIN cd.facilities ON cd.bookings.facid = cd.facilities.facid
-WHERE name LIKE 'Tennis%'
-ORDER BY member, name;
+-- recall that there are 2 tewnnis courts and they take the first 2 facid values
+UPDATE cd.facilities
+SET membercost = 6, guestcost = 30  
+WHERE facid = 0 OR facid = 1 ;
 
---more careful attempt
-SELECT DISTINCT CONCAT(mem.firstname,' ',mem.surname) AS member, fac.name
-FROM cd.members AS mem
-JOIN cd.bookings AS book ON mem.memid = book.memid
-JOIN cd.facilities AS fac ON book.facid = fac.facid
-WHERE name LIKE 'Tennis%'
-ORDER BY member, name;
+-- another way 
+UPDATE cd.facilities
+SET membercost = 6, guestcost = 30  
+WHERE facid IN (0,1) ;
 ```
 
 \
