@@ -18,15 +18,11 @@ INSERT INTO cd.facilities VALUES (9, 'Spa', 20, 30, 100000, 800) ;
 facid: 9, Name: 'Spa', membercost: 20, guestcost: 30, initialoutlay: 100000, monthlymaintenance: 800. \
 facid: 10, Name: 'Squash Court 2', membercost: 3.5, guestcost: 17.5, initialoutlay: 5000, monthlymaintenance: 80.
 ```
-SELECT book.starttime AS start, fac.name AS name 
-FROM cd.bookings AS book
-JOIN cd.facilities AS fac
-ON book.facid = fac.facid
-WHERE book.starttime >= '2012-09-21'
-AND book.starttime < '2012-09-22'
-AND fac.name LIKE 'Tennis%'
--- AND fac.name IN ('Tennis Court 1', 'Tennis Court 2') this should also work
-ORDER BY book.starttime;
+INSERT INTO cd.facilities(
+  facid, name, membercost, guestcost, initialoutlay, monthlymaintenance
+                          )
+VALUES (9, 'Spa', 20, 30, 100000, 800),
+       (10, 'Squash Court 2', 3.5, 17.5, 5000, 80) ;
 ```
 
 \
