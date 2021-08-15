@@ -1,4 +1,5 @@
 All the questions for this section can be found [here.](https://pgexercises.com/questions/updates/)
+
 \
 1.The club is adding a new facility - a spa. We need to add it into the facilities table. Use the following values: \
 facid: 9, Name: 'Spa', membercost: 20, guestcost: 30, initialoutlay: 100000, monthlymaintenance: 800.
@@ -48,7 +49,7 @@ SET initialoutlay = 10000
 WHERE cd.facilities.facid = 1 ;
 ```
 \
-5.How can you produce a list of all members who have used a tennis court? Include in your output the name of the court, and the name of the member formatted as a single column. Ensure no duplicate data, and order by the member name followed by the facility name.
+5.We want to increase the price of the tennis courts for both members and guests. Update the costs to be 6 for members, and 30 for guests.
 ```
 -- First attempt
 SELECT DISTINCT firstname ||' '|| surname AS member, name
