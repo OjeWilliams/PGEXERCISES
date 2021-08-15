@@ -1,6 +1,7 @@
-All the questions for this section can be found [here.](https://pgexercises.com/questions/joins/)
+All the questions for this section can be found [here.](https://pgexercises.com/questions/updates/)
 \
-1.How can you produce a list of the start times for bookings by members named 'David Farrell'?
+1.The club is adding a new facility - a spa. We need to add it into the facilities table. Use the following values:
+facid: 9, Name: 'Spa', membercost: 20, guestcost: 30, initialoutlay: 100000, monthlymaintenance: 800.
 
 ```
 -- My first attempt
