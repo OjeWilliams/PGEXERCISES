@@ -66,7 +66,18 @@ WHERE facid IN (0,1) ;
 6.We want to alter the price of the second tennis court so that it costs 10% more than the first one. Try to do this without using constant values for the prices, so that we can reuse the statement if we want to.
 
 ```
+UPDATE cd.facilities AS fac1
+SET membercost = (select 1.1 * fac1.membercost),
+    guestcost =  (select 1.1 * fac1.guestcost)
+FROM (SELECT * FROM cd.facilities WHERE facid = 0) AS fac2
+WHERE fac1.facid = 1 ;
 
+OR
+
+UPDATE cd.facilities fac
+SET membercost = (select 1.1 * membercost FROM cd.facilities WHERE facid = 0),
+    guestcost =  (select 1.1 * guestcost  FROM cd.facilities WHERE facid = 0)
+WHERE fac.facid = 1 ;
 ```
 \
 7.How can you output a list of all members, including the individual who recommended them (if any), without using any joins? Ensure that there are no duplicates in the list, and that each firstname + surname pairing is formatted as a column and ordered.
