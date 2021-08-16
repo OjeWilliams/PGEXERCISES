@@ -80,7 +80,7 @@ SET membercost = (select 1.1 * membercost FROM cd.facilities WHERE facid = 0),
 WHERE fac.facid = 1 ;
 ```
 \
-7.How can you output a list of all members, including the individual who recommended them (if any), without using any joins? Ensure that there are no duplicates in the list, and that each firstname + surname pairing is formatted as a column and ordered.
+7.As part of a clearout of our database, we want to delete all bookings from the cd.bookings table. How can we accomplish this?
 ```
 
 ```
