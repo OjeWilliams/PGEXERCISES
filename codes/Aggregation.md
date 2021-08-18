@@ -30,7 +30,7 @@ ORDER BY facid;
 
 ```
 \
-5.We want to increase the price of the tennis courts for both members and guests. Update the costs to be 6 for members, and 30 for guests.
+5.Produce a list of the total number of slots booked per facility in the month of September 2012. Produce an output table consisting of facility id and slots, sorted by the number of slots.
 ```
 -- recall that there are 2 tewnnis courts and they take the first 2 facid values
 UPDATE cd.facilities
