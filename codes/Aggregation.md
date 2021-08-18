@@ -24,10 +24,10 @@ ORDER BY  recommendedby;
 \
 4.Produce a list of the total number of slots booked per facility. For now, just produce an output table consisting of facility id and slots, sorted by facility id.
 ```
--- needed to check the position(actually the id) of the second tennis court and use it to specify where the change must happen
-UPDATE cd.facilities
-SET initialoutlay = 10000
-WHERE cd.facilities.facid = 1 ;
+SELECT facid, SUM(slots) AS Total_Slots FROM cd.bookings
+GROUP BY facid 
+ORDER BY facid;
+
 ```
 \
 5.We want to increase the price of the tennis courts for both members and guests. Update the costs to be 6 for members, and 30 for guests.
