@@ -16,9 +16,10 @@ WHERE guestcost >= 10 ;
 \
 3.Produce a count of the number of recommendations each member has made. Order by member ID.
 ```
-INSERT INTO cd.facilities
-    (facid, name, membercost, guestcost, initialoutlay, monthlymaintenance)
-SELECT (SELECT MAX(facid) + 1 FROM cd.facilities), 'Spa', 20, 30, 100000, 800 ;
+SELECT recommendedby, COUNT(*) FROM cd.members
+WHERE recommendedby IS NOT NULL 
+GROUP BY recommendedby
+ORDER BY  recommendedby;
 ```
 \
 4.We made a mistake when entering the data for the second tennis court. The initial outlay was 10000 rather than 8000: you need to alter the data to fix the error.
