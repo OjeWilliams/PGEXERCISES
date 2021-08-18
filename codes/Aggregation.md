@@ -44,19 +44,14 @@ ORDER BY SUM(slots);
 6.Produce a list of the total number of slots booked per facility per month in the year of 2012. Produce an output table consisting of facility id and slots, sorted by the id and month.
 
 ```
-UPDATE cd.facilities AS fac1
-SET membercost = (select 1.1 * fac1.membercost),
-    guestcost =  (select 1.1 * fac1.guestcost)
-FROM (SELECT * FROM cd.facilities WHERE facid = 0) AS fac2
-WHERE fac1.facid = 1 ;
-
-OR
-
-UPDATE cd.facilities fac
-SET membercost = (select 1.1 * membercost FROM cd.facilities WHERE facid = 0),
-    guestcost =  (select 1.1 * guestcost  FROM cd.facilities WHERE facid = 0)
-WHERE fac.facid = 1 ;
+SELECT facid, EXTRACT(MONTH FROM starttime) AS MONTH,
+SUM(slots) AS "Total Slots" 
+FROM cd.bookings
+WHERE EXTRACT(YEAR FROM starttime) = 2012 
+GROUP BY facid, month
+ORDER BY facid, month ;
 ```
+
 \
 7.As part of a clearout of our database, we want to delete all bookings from the cd.bookings table. How can we accomplish this?
 ```
