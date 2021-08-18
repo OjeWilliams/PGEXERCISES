@@ -22,7 +22,7 @@ GROUP BY recommendedby
 ORDER BY  recommendedby;
 ```
 \
-4.We made a mistake when entering the data for the second tennis court. The initial outlay was 10000 rather than 8000: you need to alter the data to fix the error.
+4.Produce a list of the total number of slots booked per facility. For now, just produce an output table consisting of facility id and slots, sorted by facility id.
 ```
 -- needed to check the position(actually the id) of the second tennis court and use it to specify where the change must happen
 UPDATE cd.facilities
