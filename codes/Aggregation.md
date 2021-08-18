@@ -67,7 +67,7 @@ ORDER BY facid, month ;
 \
 7.Find the total number of members (including guests) who have made at least one booking.
 ```
-DELETE FROM cd.bookings;
+SELECT COUNT(DISTINCT(memid)) FROM cd.bookings;
 ```
 
 \
