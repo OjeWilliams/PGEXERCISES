@@ -41,7 +41,7 @@ ORDER BY SUM(slots);
 ```
 
 \
-6.We want to alter the price of the second tennis court so that it costs 10% more than the first one. Try to do this without using constant values for the prices, so that we can reuse the statement if we want to.
+6.Produce a list of the total number of slots booked per facility per month in the year of 2012. Produce an output table consisting of facility id and slots, sorted by the id and month.
 
 ```
 UPDATE cd.facilities AS fac1
