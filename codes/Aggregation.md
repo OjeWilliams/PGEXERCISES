@@ -32,15 +32,12 @@ ORDER BY facid;
 \
 5.Produce a list of the total number of slots booked per facility in the month of September 2012. Produce an output table consisting of facility id and slots, sorted by the number of slots.
 ```
--- recall that there are 2 tewnnis courts and they take the first 2 facid values
-UPDATE cd.facilities
-SET membercost = 6, guestcost = 30  
-WHERE facid = 0 OR facid = 1 ;
+SELECT facid, SUM(slots) AS "Total Slots" FROM cd.bookings
+WHERE starttime >= '2012-09-01' 
+AND starttime < '2012-10-01'
+GROUP BY facid 
+ORDER BY SUM(slots);
 
--- another way 
-UPDATE cd.facilities
-SET membercost = 6, guestcost = 30  
-WHERE facid IN (0,1) ;
 ```
 
 \
