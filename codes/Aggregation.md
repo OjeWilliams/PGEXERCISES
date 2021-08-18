@@ -4,13 +4,7 @@ All the questions for this section can be found [here.](https://pgexercises.com/
 1.For our first foray into aggregates, we're going to stick to something simple. We want to know how many facilities exist - simply produce a total count.
 
 ```
-INSERT INTO cd.facilities
-	(facid, name, membercost, guestcost, initialoutlay, monthlymaintenance)
-VALUES (9, 'Spa', 20, 30, 100000, 800) ;
-
--- if you are putting a value into each column you could have jsut done this
-INSERT INTO cd.facilities VALUES (9, 'Spa', 20, 30, 100000, 800) ;
-
+SELECT COUNT(*) FROM cd.facilities ;
 ```
 \
 2.In the previous exercise, you learned how to add a facility. Now you're going to add multiple facilities in one command. Use the following values: \
