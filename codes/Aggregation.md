@@ -1,8 +1,7 @@
-All the questions for this section can be found [here.](https://pgexercises.com/questions/updates/)
+All the questions for this section can be found [here.](https://pgexercises.com/questions/aggregates/)
 
 \
-1.The club is adding a new facility - a spa. We need to add it into the facilities table. Use the following values: \
-facid: 9, Name: 'Spa', membercost: 20, guestcost: 30, initialoutlay: 100000, monthlymaintenance: 800.
+1.For our first foray into aggregates, we're going to stick to something simple. We want to know how many facilities exist - simply produce a total count.
 
 ```
 INSERT INTO cd.facilities
