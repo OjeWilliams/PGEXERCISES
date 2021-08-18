@@ -50,6 +50,18 @@ FROM cd.bookings
 WHERE EXTRACT(YEAR FROM starttime) = 2012 
 GROUP BY facid, month
 ORDER BY facid, month ;
+
+OR
+
+-- Taking inspiration from question 5
+
+SELECT facid, EXTRACT(MONTH FROM starttime) AS MONTH,
+SUM(slots) AS "Total Slots" 
+FROM cd.bookings
+WHERE starttime >= '2012-01-01' 
+AND starttime < '2012-12-31'
+GROUP BY facid, month
+ORDER BY facid, month ;
 ```
 
 \
