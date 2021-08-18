@@ -65,7 +65,7 @@ ORDER BY facid, month ;
 ```
 
 \
-7.As part of a clearout of our database, we want to delete all bookings from the cd.bookings table. How can we accomplish this?
+7.Find the total number of members (including guests) who have made at least one booking.
 ```
 DELETE FROM cd.bookings;
 ```
