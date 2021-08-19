@@ -98,7 +98,18 @@ ORDER BY revenue
 \
 10.Produce a list of facilities with a total revenue less than 1000. Produce an output table consisting of facility name and revenue, sorted by revenue. Remember that there's a different cost for guests and members!
 ```
-
+-- this was also challenging
+SELECT name, revenue  
+FROM (SELECT fac.name, SUM( CASE WHEN memid = 0 THEN slots * guestcost 
+	         ELSE slots * membercost
+			 END
+  ) AS revenue 
+FROM cd.bookings AS book 
+JOIN cd.facilities AS fac
+ON fac.facid = book.facid
+GROUP BY fac.name) AS grp
+WHERE revenue < 1000	  
+ORDER BY revenue ;
 
 ```
 \
