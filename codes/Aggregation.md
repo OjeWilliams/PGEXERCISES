@@ -111,6 +111,23 @@ GROUP BY fac.name) AS grp
 WHERE revenue < 1000	  
 ORDER BY revenue ;
 
+another solution including HAVING
+
+select facs.name, sum(case 
+		when memid = 0 then slots * facs.guestcost
+		else slots * membercost
+	end) as revenue
+	from cd.bookings bks
+	inner join cd.facilities facs
+		on bks.facid = facs.facid
+	group by facs.name
+	having sum(case 
+		when memid = 0 then slots * facs.guestcost
+		else slots * membercost
+	end) < 1000
+order by revenue;
+
+
 ```
 \
 11.Produce a list of the total number of slots booked per facility in the month of September 2012. Produce an output table consisting of facility id and slots, sorted by the number of slots.
