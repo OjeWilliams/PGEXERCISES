@@ -98,18 +98,11 @@ ORDER BY revenue
 \
 10.Produce a list of facilities with a total revenue less than 1000. Produce an output table consisting of facility name and revenue, sorted by revenue. Remember that there's a different cost for guests and members!
 ```
-SELECT facid, SUM(slots) AS Total_Slots FROM cd.bookings
-GROUP BY facid 
-ORDER BY facid;
+
 
 ```
 \
-5.Produce a list of the total number of slots booked per facility in the month of September 2012. Produce an output table consisting of facility id and slots, sorted by the number of slots.
+11.Produce a list of the total number of slots booked per facility in the month of September 2012. Produce an output table consisting of facility id and slots, sorted by the number of slots.
 ```
-SELECT facid, SUM(slots) AS "Total Slots" FROM cd.bookings
-WHERE starttime >= '2012-09-01' 
-AND starttime < '2012-10-01'
-GROUP BY facid 
-ORDER BY SUM(slots);
 
 ```
