@@ -81,7 +81,7 @@ ORDER BY facid ;
 ```
 
 \
-9.In our previous exercises, we deleted a specific member who had never made a booking. How can we make that more general, to delete all members who have never made a booking?
+9.Produce a list of facilities along with their total revenue. The output table should consist of facility name and revenue, sorted by revenue. Remember that there's a different cost for guests and members!
 ```
 DELETE FROM cd.members
 WHERE memid NOT IN (SELECT memid FROM cd.bookings);
