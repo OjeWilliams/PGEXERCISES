@@ -73,8 +73,11 @@ SELECT COUNT(DISTINCT(memid)) FROM cd.bookings;
 \
 8.Produce a list of facilities with more than 1000 slots booked. Produce an output table consisting of facility id and slots, sorted by facility id
 ```
-DELETE FROM cd.members
-WHERE memid = 37 ;
+SELECT facid, SUM(slots) AS "Total Slots"
+FROM cd.bookings
+GROUP BY facid
+HAVING SUM(slots) > 1000
+ORDER BY facid ;
 ```
 
 \
