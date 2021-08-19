@@ -71,7 +71,7 @@ SELECT COUNT(DISTINCT(memid)) FROM cd.bookings;
 ```
 
 \
-8.We want to remove member 37, who has never made a booking, from our database. How can we achieve that?
+8.Produce a list of facilities with more than 1000 slots booked. Produce an output table consisting of facility id and slots, sorted by facility id
 ```
 DELETE FROM cd.members
 WHERE memid = 37 ;
