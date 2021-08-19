@@ -83,7 +83,16 @@ ORDER BY facid ;
 \
 9.Produce a list of facilities along with their total revenue. The output table should consist of facility name and revenue, sorted by revenue. Remember that there's a different cost for guests and members!
 ```
-DELETE FROM cd.members
-WHERE memid NOT IN (SELECT memid FROM cd.bookings);
+-- needed some help with this 
+SELECT fac.name, 
+SUM(slots * CASE
+	        WHEN memid = 0 THEN fac.guestcost
+			ELSE fac.membercost
+			END) AS revenue
+FROM cd.bookings AS book
+JOIN cd.facilities AS fac 
+ON book.facid = fac.facid
+GROUP BY fac.name
+ORDER BY revenue
 ```
 
