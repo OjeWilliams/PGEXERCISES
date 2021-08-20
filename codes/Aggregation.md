@@ -137,4 +137,13 @@ FROM cd.bookings
 GROUP BY facid
 ORDER BY SUM(slots) DESC
 LIMIT 1;
+
+-- WITRH CTE
+WITH maxy AS(
+  	      SELECT facid, SUM(slots) AS total_slots FROM cd.bookings
+  	      GROUP BY facid
+             )
+SELECT facid, total_slots
+FROM maxy
+WHERE total_slots = (SELECT MAX(total_slots) FROM maxy);
 ```
