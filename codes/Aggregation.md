@@ -130,7 +130,7 @@ order by revenue;
 
 ```
 \
-11.Produce a list of the total number of slots booked per facility in the month of September 2012. Produce an output table consisting of facility id and slots, sorted by the number of slots.
+11.Output the facility id that has the highest number of slots booked. For bonus points, try a version without a LIMIT clause. This version will probably look messy!
 ```
 
 ```
