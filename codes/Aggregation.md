@@ -132,5 +132,9 @@ order by revenue;
 \
 11.Output the facility id that has the highest number of slots booked. For bonus points, try a version without a LIMIT clause. This version will probably look messy!
 ```
-
+SELECT facid, SUM(slots) AS "Total SLots" 
+FROM cd.bookings
+GROUP BY facid
+ORDER BY SUM(slots) DESC
+LIMIT 1;
 ```
