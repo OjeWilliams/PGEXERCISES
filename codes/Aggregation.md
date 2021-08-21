@@ -147,3 +147,33 @@ SELECT facid, total_slots
 FROM maxy
 WHERE total_slots = (SELECT MAX(total_slots) FROM maxy);
 ```
+
+\
+12.Produce a list of the total number of slots booked per facility per month in the year of 2012. In this version, include output rows containing totals for all months per facility, and a total for all months for all facilities. The output table should consist of facility id, month and slots, sorted by the id and month. When calculating the aggregated values for all months and all facids, return null values in the month and facid columns.
+
+```
+SELECT COUNT(*) FROM cd.facilities ;
+```
+\
+2.Produce a count of the number of facilities that have a cost to guests of 10 or more.
+```
+SELECT COUNT(*) FROM cd.facilities
+WHERE guestcost >= 10 ;
+```
+
+\
+3.Produce a count of the number of recommendations each member has made. Order by member ID.
+```
+SELECT recommendedby, COUNT(*) FROM cd.members
+WHERE recommendedby IS NOT NULL 
+GROUP BY recommendedby
+ORDER BY  recommendedby;
+```
+\
+4.Produce a list of the total number of slots booked per facility. For now, just produce an output table consisting of facility id and slots, sorted by facility id.
+```
+SELECT facid, SUM(slots) AS Total_Slots FROM cd.bookings
+GROUP BY facid 
+ORDER BY facid;
+
+```
