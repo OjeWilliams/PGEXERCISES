@@ -185,8 +185,9 @@ union all
 select null, null, sum(slots) from bookings
 order by facid, month;
 ```
+
 \
-13.Produce a count of the number of facilities that have a cost to guests of 10 or more.
+13.Produce a list of the total number of hours booked per facility, remembering that a slot lasts half an hour. The output table should consist of the facility id, name, and hours booked, sorted by facility id. Try formatting the hours to two decimal places.
 ```
 
 
