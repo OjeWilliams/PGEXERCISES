@@ -159,6 +159,14 @@ WHERE starttime BETWEEN '2012-01-01' AND '2012-12-31'
 GROUP BY facid, "Month"
 ORDER BY facid, "Month" ;
 
+-- Used grouping set commands... ie ROLLUP . note the order of items inside rollu matters
+
+SELECT facid, EXTRACT(MONTH FROM starttime) AS "Month", SUM(slots) AS slots
+FROM cd.bookings
+WHERE starttime BETWEEN '2012-01-01' AND '2012-12-31'
+GROUP BY ROLLUP(facid, "Month")
+ORDER BY facid, "Month" ;
+
 ```
 \
 13.Produce a count of the number of facilities that have a cost to guests of 10 or more.
