@@ -159,6 +159,8 @@ WHERE starttime BETWEEN '2012-01-01' AND '2012-12-31'
 GROUP BY facid, "Month"
 ORDER BY facid, "Month" ;
 
+OR
+
 -- Used grouping set commands... ie ROLLUP . note the order of items inside rollu matters
 
 SELECT facid, EXTRACT(MONTH FROM starttime) AS "Month", SUM(slots) AS slots
@@ -167,6 +169,21 @@ WHERE starttime BETWEEN '2012-01-01' AND '2012-12-31'
 GROUP BY ROLLUP(facid, "Month")
 ORDER BY facid, "Month" ;
 
+OR
+-- one of their solutions with a CTE and Union All
+with bookings as (
+	select facid, extract(month from starttime) as month, slots
+	from cd.bookings
+	where
+		starttime >= '2012-01-01'
+		and starttime < '2013-01-01'
+)
+select facid, month, sum(slots) from bookings group by facid, month
+union all
+select facid, null, sum(slots) from bookings group by facid
+union all
+select null, null, sum(slots) from bookings
+order by facid, month;
 ```
 \
 13.Produce a count of the number of facilities that have a cost to guests of 10 or more.
