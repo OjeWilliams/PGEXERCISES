@@ -155,19 +155,16 @@ WHERE total_slots = (SELECT MAX(total_slots) FROM maxy);
 SELECT COUNT(*) FROM cd.facilities ;
 ```
 \
-2.Produce a count of the number of facilities that have a cost to guests of 10 or more.
+13.Produce a count of the number of facilities that have a cost to guests of 10 or more.
 ```
 
 
 ```
 
 \
-3.Produce a count of the number of recommendations each member has made. Order by member ID.
+14.Produce a count of the number of recommendations each member has made. Order by member ID.
 ```
-SELECT recommendedby, COUNT(*) FROM cd.members
-WHERE recommendedby IS NOT NULL 
-GROUP BY recommendedby
-ORDER BY  recommendedby;
+
 ```
 \
 4.Produce a list of the total number of slots booked per facility. For now, just produce an output table consisting of facility id and slots, sorted by facility id.
