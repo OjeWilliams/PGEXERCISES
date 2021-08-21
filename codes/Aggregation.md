@@ -152,7 +152,13 @@ WHERE total_slots = (SELECT MAX(total_slots) FROM maxy);
 12.Produce a list of the total number of slots booked per facility per month in the year of 2012. In this version, include output rows containing totals for all months per facility, and a total for all months for all facilities. The output table should consist of facility id, month and slots, sorted by the id and month. When calculating the aggregated values for all months and all facids, return null values in the month and facid columns.
 
 ```
-SELECT COUNT(*) FROM cd.facilities ;
+-- First attempt, it seems I need to incorporate the total count for each month after their individual counts
+SELECT facid, EXTRACT(MONTH FROM starttime) AS "Month", SUM(slots) AS slots
+FROM cd.bookings
+WHERE starttime BETWEEN '2012-01-01' AND '2012-12-31'
+GROUP BY facid, "Month"
+ORDER BY facid, "Month" ;
+
 ```
 \
 13.Produce a count of the number of facilities that have a cost to guests of 10 or more.
