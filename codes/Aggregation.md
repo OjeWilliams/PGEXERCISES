@@ -197,6 +197,12 @@ JOIN cd.facilities AS fac ON book.facid = fac.facid
 GROUP BY fac.facid, fac.name
 ORDER BY fac.facid ;
 
+-- I realised the issue I needed to divide by 2 not multiply. Also it has to be 2.0 for floating point division
+SELECT fac.facid, fac.name, ROUND(SUM(book.slots/2.0),2) AS total_hours
+FROM cd.bookings AS book
+JOIN cd.facilities AS fac ON book.facid = fac.facid
+GROUP BY fac.facid, fac.name
+ORDER BY fac.facid ;
 
 ```
 
