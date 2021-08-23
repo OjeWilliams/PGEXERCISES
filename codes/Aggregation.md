@@ -241,5 +241,39 @@ ORDER BY joindate
 
 OR
 
+SELECT (SELECT COUNT(*) FROM cd.members) AS "Count", firstname, surname
+FROM cd.members
+ORDER BY joindate;
+```
+
+\
+16.For our first foray into aggregates, we're going to stick to something simple. We want to know how many facilities exist - simply produce a total count.
 
 ```
+SELECT COUNT(*) FROM cd.facilities ;
+```
+\
+17.Produce a count of the number of facilities that have a cost to guests of 10 or more.
+```
+SELECT COUNT(*) FROM cd.facilities
+WHERE guestcost >= 10 ;
+```
+
+\
+18.Produce a count of the number of recommendations each member has made. Order by member ID.
+```
+SELECT recommendedby, COUNT(*) FROM cd.members
+WHERE recommendedby IS NOT NULL 
+GROUP BY recommendedby
+ORDER BY  recommendedby;
+```
+\
+19.Produce a list of the total number of slots booked per facility. For now, just produce an output table consisting of facility id and slots, sorted by facility id.
+```
+SELECT facid, SUM(slots) AS Total_Slots FROM cd.bookings
+GROUP BY facid 
+ORDER BY facid;
+
+```
+
+
