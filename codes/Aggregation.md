@@ -248,9 +248,10 @@ ORDER BY joindate;
 
 \
 16.Produce a monotonically increasing numbered list of members (including guests), ordered by their date of joining. Remember that member IDs are not guaranteed to be sequential.
-
 ```
-
+SELECT ROW_NUMBER() OVER (ORDER BY joindate), firstname, surname
+FROM cd.members
+ORDER BY joindate ;
 ```
 \
 17.Produce a count of the number of facilities that have a cost to guests of 10 or more.
