@@ -228,7 +228,7 @@ ORDER BY mem.memid ;
 
 ```
 \
-15.Produce a list of the total number of slots booked per facility. For now, just produce an output table consisting of facility id and slots, sorted by facility id.
+15.Produce a list of member names, with each row containing the total member count. Order by join date, and include guest members.
 ```
 
 
