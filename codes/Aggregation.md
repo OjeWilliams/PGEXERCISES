@@ -233,4 +233,13 @@ ORDER BY mem.memid ;
 SELECT COUNT(memid) OVER () AS COUNTR, firstname, surname
 FROM cd.members
 
+OR
+
+SELECT COUNT(memid) OVER () AS COUNTR, firstname, surname
+FROM cd.members
+ORDER BY joindate
+
+OR
+
+
 ```
