@@ -230,6 +230,7 @@ ORDER BY mem.memid ;
 \
 15.Produce a list of member names, with each row containing the total member count. Order by join date, and include guest members.
 ```
-
+SELECT COUNT(memid) OVER () AS COUNTR, firstname, surname
+FROM cd.members
 
 ```
