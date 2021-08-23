@@ -219,6 +219,12 @@ order by facs.facid;
 \
 14.Produce a list of each member name, id, and their first booking after September 1st 2012. Order by member ID.
 ```
+SELECT DISTINCT mem.surname, mem.firstname, mem.memid, MIN(starttime) AS starttime
+FROM cd.members AS mem
+JOIN cd.bookings AS book ON mem.memid = book.memid
+WHERE starttime >= '2012-09-01'
+GROUP BY  mem.surname, mem.firstname, mem.memid
+ORDER BY mem.memid ;
 
 ```
 \
