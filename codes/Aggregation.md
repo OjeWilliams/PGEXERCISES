@@ -296,6 +296,15 @@ JOIN cd.bookings AS book ON mem.memid = book.memid
 GROUP BY mem.memid
 ORDER BY myrank, mem.surname, mem.firstname
 ;
+
+-- Correct Answer
+SELECT mem.firstname, mem.surname, ROUND(((SUM(book.slots)+10)/20)*10,-1) AS hours,
+       RANK() OVER (ORDER BY ((SUM(book.slots)+10)/20)*10 DESC) AS myrank
+FROM cd.members AS mem
+JOIN cd.bookings AS book ON mem.memid = book.memid 
+GROUP BY mem.memid
+ORDER BY myrank, mem.surname, mem.firstname
+;
 ```
 
 
