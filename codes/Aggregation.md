@@ -254,7 +254,7 @@ FROM cd.members
 ORDER BY joindate ;
 ```
 \
-17.Produce a count of the number of facilities that have a cost to guests of 10 or more.
+17.Output the facility id that has the highest number of slots booked. Ensure that in the event of a tie, all tieing results get output.
 ```
 
 ```
