@@ -279,9 +279,14 @@ WHERE myrank = 1
 
 \
 18.Produce a list of members (including guests), along with the number of hours they've booked in facilities, rounded to the nearest ten hours. Rank them by this rounded figure, producing output of first name, surname, rounded hours, rank. Sort by rank, surname, and first name.
-
 ```
-
+-- First Attempt. The number for my hours are off
+SELECT mem.firstname, mem.surname, ROUND(SUM(book.slots),-1) AS hours,
+       RANK() OVER (ORDER BY SUM(book.slots) DESC) AS myrank
+FROM cd.members AS mem
+JOIN cd.bookings AS book ON mem.memid = book.memid 
+GROUP BY mem.memid
+ORDER BY myrank, mem.surname, mem.firstname
 ```
 \
 19.Produce a list of the total number of slots booked per facility. For now, just produce an output table consisting of facility id and slots, sorted by facility id.
