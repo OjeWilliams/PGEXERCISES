@@ -278,7 +278,8 @@ WHERE myrank = 1
 ```
 
 \
-18.Produce a count of the number of recommendations each member has made. Order by member ID.
+18.Produce a list of members (including guests), along with the number of hours they've booked in facilities, rounded to the nearest ten hours. Rank them by this rounded figure, producing output of first name, surname, rounded hours, rank. Sort by rank, surname, and first name.
+
 ```
 
 ```
