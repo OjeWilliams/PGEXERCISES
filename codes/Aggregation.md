@@ -264,7 +264,15 @@ ORDER BY facid  DESC
 LIMIT 1
  ;
  
- -- 
+-- Achieves right output
+SELECT facid, total 
+FROM (
+SELECT facid, SUM(slots) AS TOTAL, RANK() OVER (ORDER BY SUM(slots) DESC) AS MYRANK
+FROM cd.bookings
+GROUP BY facid
+   ) AS maxfacil
+WHERE myrank = 1
+  ;
  
 
 ```
