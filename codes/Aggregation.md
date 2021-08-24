@@ -287,7 +287,18 @@ FROM cd.members AS mem
 JOIN cd.bookings AS book ON mem.memid = book.memid 
 GROUP BY mem.memid
 ORDER BY myrank, mem.surname, mem.firstname
+
+-- Second Attempt. WIth some help the hours are correct but the ranks are incorrect.
+SELECT mem.firstname, mem.surname, ROUND(((SUM(book.slots)+10)/20)*10,-1) AS hours,
+       RANK() OVER (ORDER BY SUM(book.slots) DESC) AS myrank
+FROM cd.members AS mem
+JOIN cd.bookings AS book ON mem.memid = book.memid 
+GROUP BY mem.memid
+ORDER BY myrank, mem.surname, mem.firstname
+;
 ```
+
+
 \
 19.Produce a list of the total number of slots booked per facility. For now, just produce an output table consisting of facility id and slots, sorted by facility id.
 ```
