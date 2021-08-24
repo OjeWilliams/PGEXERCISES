@@ -256,6 +256,16 @@ ORDER BY joindate ;
 \
 17.Output the facility id that has the highest number of slots booked. Ensure that in the event of a tie, all tieing results get output.
 ```
+-- First Attempt. I misunderstood the question. I needed to use window functions
+SELECT facid, total SUM(slots) AS TOTAL
+FROM cd.bookings
+GROUP BY facid
+ORDER BY facid  DESC
+LIMIT 1
+ ;
+ 
+ -- 
+ 
 
 ```
 
