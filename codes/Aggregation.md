@@ -400,7 +400,7 @@ ORDER BY myclass, name;
 
 ```
 \
-21.Produce a count of the number of facilities that have a cost to guests of 10 or more.
+21.Based on the 3 complete months of data so far, calculate the amount of time each facility will take to repay its cost of ownership. Remember to take into account ongoing monthly maintenance. Output facility name and payback time in months, order by facility name. Don't worry about differences in month lengths, we're only looking for a rough value here!
 ```
 
 ```
