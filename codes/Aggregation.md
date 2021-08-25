@@ -309,7 +309,7 @@ ORDER BY myrank, mem.surname, mem.firstname
 
 
 \
-19.Produce a list of the total number of slots booked per facility. For now, just produce an output table consisting of facility id and slots, sorted by facility id.
+19.Produce a list of members (including guests), along with the number of hours they've booked in facilities, rounded to the nearest ten hours. Rank them by this rounded figure, producing output of first name, surname, rounded hours, rank. Sort by rank, surname, and first name.
 ```
 
 ```
