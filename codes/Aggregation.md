@@ -309,7 +309,8 @@ ORDER BY myrank, mem.surname, mem.firstname
 
 
 \
-19.Produce a list of members (including guests), along with the number of hours they've booked in facilities, rounded to the nearest ten hours. Rank them by this rounded figure, producing output of first name, surname, rounded hours, rank. Sort by rank, surname, and first name.
+19.Produce a list of the top three revenue generating facilities (including ties). Output facility name and rank, sorted by rank and facility name.
 ```
+
 
 ```
