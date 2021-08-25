@@ -361,6 +361,7 @@ order by rank;
 20.Classify facilities into equally sized groups of high, average, and low based on their revenue. Order by classification and facility name.
 ```
 -- another tricky one for me but I am also sure I have to use NTILE() or some kind of NTH_VALUE
+-- So this works but it doesn't return them in the order as shown in their expected results
 
 SELECT name, 
 CASE WHEN myclass = 1 THEN 'high'
