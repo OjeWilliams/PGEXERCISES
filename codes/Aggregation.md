@@ -312,5 +312,18 @@ ORDER BY myrank, mem.surname, mem.firstname
 19.Produce a list of the top three revenue generating facilities (including ties). Output facility name and rank, sorted by rank and facility name.
 ```
 -- This one took a little time
+SELECT fac.name, myrank
+FROM (
+      SELECT fac.name, RANK() OVER 
+                        (ORDER BY SUM(CASE WHEN memid = 0 THEN book.slots * fac.guestcost
+                                      ELSE book.slots * fac.membercost
+                                       END) DESC) AS myrank
+       FROM cd.facilities AS fac
+  	   JOIN cd.bookings as book 
+       ON fac.facid = book.facid
+       GROUP BY fac.name
+       ) AS top
+ORDER BY myrank
+LIMIT 3 ;
 
 ```
