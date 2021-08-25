@@ -402,7 +402,19 @@ ORDER BY myclass, name;
 \
 21.Based on the 3 complete months of data so far, calculate the amount of time each facility will take to repay its cost of ownership. Remember to take into account ongoing monthly maintenance. Output facility name and payback time in months, order by facility name. Don't worry about differences in month lengths, we're only looking for a rough value here!
 ```
-
+-- had to spend some time understanding the questions and what the initialoutlay column was about.
+SELECT name, (init_out / (month_rev - month_mainten)) AS months_to_repay
+FROM (
+     SELECT fac.name, fac.initialoutlay AS init_out, fac.monthlymaintenance AS month_mainten,
+                 SUM(CASE
+				 WHEN memid = 0 THEN book.slots * fac.guestcost
+				 ELSE book.slots * fac.membercost
+			     END)/3 AS month_rev
+       FROM cd.facilities AS fac
+  	   JOIN cd.bookings AS book ON fac.facid = book.facid
+	   GROUP BY fac.name, init_out, month_mainten
+	 ) as three_month  
+ORDER BY name;
 ```
 
 \
