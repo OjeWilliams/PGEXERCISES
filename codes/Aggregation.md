@@ -362,6 +362,24 @@ order by rank;
 ```
 -- another tricky one for me but I am also sure I have to use NTILE() or some kind of NTH_VALUE
 
+SELECT name, 
+CASE WHEN myclass = 1 THEN 'high'
+	 WHEN myclass = 2 THEN 'average'
+	 ELSE 'low'
+END AS revclass
+FROM (SELECT fac.name, NTILE(3) OVER (ORDER BY
+				SUM(CASE
+				 WHEN memid = 0 THEN book.slots * fac.guestcost
+				 ELSE book.slots * fac.membercost
+			     END
+				 )DESC ) AS myclass
+       FROM cd.facilities AS fac
+  	   JOIN cd.bookings AS book ON fac.facid = book.facid
+	   GROUP BY fac.name
+	 ) AS mygroup
+ORDER BY revclass ,name ;
+
+
 ```
 \
 21.Produce a count of the number of facilities that have a cost to guests of 10 or more.
