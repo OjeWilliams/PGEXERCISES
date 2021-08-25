@@ -358,23 +358,19 @@ order by rank;
 ```
 
 \
-20.For our first foray into aggregates, we're going to stick to something simple. We want to know how many facilities exist - simply produce a total count.
+20.Classify facilities into equally sized groups of high, average, and low based on their revenue. Order by classification and facility name.
 
 ```
-SELECT COUNT(*) FROM cd.facilities ;
+
 ```
 \
 21.Produce a count of the number of facilities that have a cost to guests of 10 or more.
 ```
-SELECT COUNT(*) FROM cd.facilities
-WHERE guestcost >= 10 ;
+
 ```
 
 \
 22.Produce a count of the number of recommendations each member has made. Order by member ID.
 ```
-SELECT recommendedby, COUNT(*) FROM cd.members
-WHERE recommendedby IS NOT NULL 
-GROUP BY recommendedby
-ORDER BY  recommendedby;
+
 ```
