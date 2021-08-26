@@ -1,7 +1,7 @@
 All the questions for this section can be found [here.](https://pgexercises.com/questions/date/)
 
 \
-1.How can you produce a list of the start times for bookings by members named 'David Farrell'?
+1.Produce a timestamp for 1 a.m. on the 31st of August 2012.
 
 ```
 -- My first attempt
