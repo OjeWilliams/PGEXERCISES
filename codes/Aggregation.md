@@ -420,5 +420,6 @@ ORDER BY name;
 \
 22.Produce a count of the number of recommendations each member has made. Order by member ID.
 ```
+-- wasn't able to solve this one on my own. Tried for a couple minutes.
 
 ```
