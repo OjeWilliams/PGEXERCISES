@@ -11,7 +11,7 @@ select '2012-08-31 01:00:00'::timestamp;
 select cast('2012-08-31 01:00:00' as timestamp);
 ```
 \
-2.How can you produce a list of the start times for bookings for tennis courts, for the date '2012-09-21'? Return a list of start time and facility name pairings, ordered by the time.
+2.Find the result of subtracting the timestamp '2012-07-30 01:00:00' from the timestamp '2012-08-31 01:00:00'
 ```
 SELECT book.starttime AS start, fac.name AS name 
 FROM cd.bookings AS book
