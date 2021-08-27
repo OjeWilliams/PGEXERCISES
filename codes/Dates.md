@@ -13,15 +13,8 @@ select cast('2012-08-31 01:00:00' as timestamp);
 \
 2.Find the result of subtracting the timestamp '2012-07-30 01:00:00' from the timestamp '2012-08-31 01:00:00'
 ```
-SELECT book.starttime AS start, fac.name AS name 
-FROM cd.bookings AS book
-JOIN cd.facilities AS fac
-ON book.facid = fac.facid
-WHERE book.starttime >= '2012-09-21'
-AND book.starttime < '2012-09-22'
-AND fac.name LIKE 'Tennis%'
--- AND fac.name IN ('Tennis Court 1', 'Tennis Court 2') this should also work
-ORDER BY book.starttime;
+SELECT TIMESTAMP'2012-08-31 01:00:00' - TIMESTAMP'2012-07-30 01:00:00' AS INTERVAL ;
+
 ```
 
 \
