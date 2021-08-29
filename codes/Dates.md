@@ -20,7 +20,7 @@ SELECT TIMESTAMP'2012-08-31 01:00:00' - TIMESTAMP'2012-07-30 01:00:00' AS INTERV
 \
 3.Get the day of the month from the timestamp '2012-08-31' as an integer.
 ```
-SELECT GENERATE_SERIES(TIMESTAMP '2012-10-01 00:00:00', TIMESTAMP '2012-10-31 00:00:00',INTERVAL '1 day') AS TS ;
+SELECT EXTRACT(DAY FROM TIMESTAMP'2012-08-31') ;
 ```
 \
 4.How can you output a list of all members, including the individual who recommended them (if any)? Ensure that results are ordered by (surname, firstname).
