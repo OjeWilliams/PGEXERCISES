@@ -23,7 +23,7 @@ SELECT TIMESTAMP'2012-08-31 01:00:00' - TIMESTAMP'2012-07-30 01:00:00' AS INTERV
 SELECT EXTRACT(DAY FROM TIMESTAMP'2012-08-31') ;
 ```
 \
-4.How can you output a list of all members, including the individual who recommended them (if any)? Ensure that results are ordered by (surname, firstname).
+4.Work out the number of seconds between the timestamps '2012-08-31 01:00:00' and '2012-09-02 00:00:00'
 ```
 SELECT 
     A.firstname AS memFname, A.surname AS memSname,
