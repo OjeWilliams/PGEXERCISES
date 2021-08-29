@@ -11,14 +11,14 @@ select '2012-08-31 01:00:00'::timestamp;
 select cast('2012-08-31 01:00:00' as timestamp);
 ```
 \
-2.Produce a list of all the dates in October 2012. They can be output as a timestamp (with time set to midnight) or a date.
+2.Find the result of subtracting the timestamp '2012-07-30 01:00:00' from the timestamp '2012-08-31 01:00:00'
 ```
 SELECT TIMESTAMP'2012-08-31 01:00:00' - TIMESTAMP'2012-07-30 01:00:00' AS INTERVAL ;
 
 ```
 
 \
-3. How can you output a list of all members who have recommended another member? Ensure that there are no duplicates in the list, and that results are ordered by (surname, firstname).
+3.Produce a list of all the dates in October 2012. They can be output as a timestamp (with time set to midnight) or a date.
 ```
 -- Used subquery and inner join
 SELECT DISTINCT(A.firstname) AS firstname, A.surname AS surname
