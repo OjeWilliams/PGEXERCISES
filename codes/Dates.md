@@ -20,22 +20,7 @@ SELECT TIMESTAMP'2012-08-31 01:00:00' - TIMESTAMP'2012-07-30 01:00:00' AS INTERV
 \
 3.Produce a list of all the dates in October 2012. They can be output as a timestamp (with time set to midnight) or a date.
 ```
--- Used subquery and inner join
-SELECT DISTINCT(A.firstname) AS firstname, A.surname AS surname
-FROM (SELECT Anames.firstname, Anames.surname FROM cd.members AS Anames
-	  JOIN cd.members AS Bnames on
-	  Anames.memid = Bnames.recommendedby
-	   ) AS A
-ORDER BY A.surname, A.firstname ;
-
-OR
-
--- no subquery
-SELECT DISTINCT(Anames.firstname) AS firstname, Anames.surname AS surname
-FROM cd.members AS Anames
-	  JOIN cd.members AS Bnames on
-	  Anames.memid = Bnames.recommendedby
-ORDER BY Anames.surname, Anames.firstname ;
+SELECT GENERATE_SERIES(TIMESTAMP '2012-10-01 00:00:00', TIMESTAMP '2012-10-31 00:00:00',INTERVAL '1 day') AS TS ;
 ```
 \
 4.How can you output a list of all members, including the individual who recommended them (if any)? Ensure that results are ordered by (surname, firstname).
