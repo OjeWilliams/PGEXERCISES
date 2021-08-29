@@ -18,7 +18,7 @@ SELECT TIMESTAMP'2012-08-31 01:00:00' - TIMESTAMP'2012-07-30 01:00:00' AS INTERV
 ```
 
 \
-3.Produce a list of all the dates in October 2012. They can be output as a timestamp (with time set to midnight) or a date.
+3.Get the day of the month from the timestamp '2012-08-31' as an integer.
 ```
 SELECT GENERATE_SERIES(TIMESTAMP '2012-10-01 00:00:00', TIMESTAMP '2012-10-31 00:00:00',INTERVAL '1 day') AS TS ;
 ```
