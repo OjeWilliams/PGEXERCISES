@@ -25,6 +25,11 @@ SELECT EXTRACT(DAY FROM TIMESTAMP'2012-08-31') ;
 \
 4.Work out the number of seconds between the timestamps '2012-08-31 01:00:00' and '2012-09-02 00:00:00'
 ```
+-- first attempt
+  SELECT ((DATE_PART('day', '2012-09-02 00:00:00'::timestamp - '2012-08-31 01:00:00'::timestamp) * 24 + 
+                DATE_PART('hour', '2012-09-02 00:00:00'::timestamp - '2012-08-31 01:00:00'::timestamp)) * 60 +
+                DATE_PART('minute', '2012-09-02 00:00:00'::timestamp - '2012-08-31 01:00:00'::timestamp)) * 60 +
+                DATE_PART('second', '2012-09-02 00:00:00'::timestamp - '2012-08-31 01:00:00'::timestamp);
 
 ```
 \
