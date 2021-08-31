@@ -30,6 +30,14 @@ SELECT EXTRACT(DAY FROM TIMESTAMP'2012-08-31') ;
                 DATE_PART('hour', '2012-09-02 00:00:00'::timestamp - '2012-08-31 01:00:00'::timestamp)) * 60 +
                 DATE_PART('minute', '2012-09-02 00:00:00'::timestamp - '2012-08-31 01:00:00'::timestamp)) * 60 +
                 DATE_PART('second', '2012-09-02 00:00:00'::timestamp - '2012-08-31 01:00:00'::timestamp);
+                
+-- second attempt
+SELECT EXTRACT(DAY FROM ts.int)*60*60*24 +
+	EXTRACT(HOUR FROM ts.int)*60*60 + 
+	EXTRACT(MINUTE FROM ts.int)*60 +
+	EXTRACT(SECOND FROM ts.int)
+	FROM
+		(SELECT TIMESTAMP '2012-09-02 00:00:00' - '2012-08-31 01:00:00' AS int) ts
 
 ```
 \
