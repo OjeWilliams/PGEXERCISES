@@ -59,9 +59,10 @@ ORDER BY Month ;
 
 \
 6.For any given timestamp, work out the number of days remaining in the month. The current day should count as a whole day, regardless of the time. Use '2012-02-11 01:00:00' as an example timestamp for the purposes of making the answer. Format the output as a single interval value.
-
 ```
-
+SELECT (DATE_TRUNC('MONTH', time.test) + INTERVAL '1 MONTH')
+       - DATE_TRUNC('DAY' , time.test) as left_to_go
+FROM ( SELECT TIMESTAMP '2012-02-11 01:00:00' AS test) AS time ;
 ```
 \
 7.How can you output a list of all members, including the individual who recommended them (if any), without using any joins? Ensure that there are no duplicates in the list, and that each firstname + surname pairing is formatted as a column and ordered.
