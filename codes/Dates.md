@@ -67,5 +67,10 @@ FROM ( SELECT TIMESTAMP '2012-02-11 01:00:00' AS test) AS time ;
 \
 7.Return a list of the start and end time of the last 10 bookings (ordered by the time at which they end, followed by the time at which they start) in the system.
 ```
+-- Be careful with this one. When you used the ORDER BY remy that which colums goes first affects the output.
+SELECT starttime, starttime + slots * (INTERVAL '30 minutes') AS endtime
+FROM cd.bookings
+ORDER BY endtime DESC, starttime DESC 
+LIMIT 10;
 
 ```
