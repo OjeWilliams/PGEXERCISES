@@ -77,12 +77,10 @@ LIMIT 10;
 \
 8.Return a count of bookings for each month, sorted by month
 ```
-SELECT TIMESTAMP '2012-08-31 01:00:00' ;
-
-OR
-
-select '2012-08-31 01:00:00'::timestamp;
-select cast('2012-08-31 01:00:00' as timestamp);
+SELECT DATE_TRUNC('MONTH', starttime) as mymonth, COUNT(slots) 
+FROM cd.bookings
+GROUP BY mymonth
+ORDER BY mymonth ;
 ```
 \
 2.Find the result of subtracting the timestamp '2012-07-30 01:00:00' from the timestamp '2012-08-31 01:00:00'
