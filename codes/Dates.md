@@ -72,5 +72,22 @@ SELECT starttime, starttime + slots * (INTERVAL '30 minutes') AS endtime
 FROM cd.bookings
 ORDER BY endtime DESC, starttime DESC 
 LIMIT 10;
+```
+
+\
+1.Produce a timestamp for 1 a.m. on the 31st of August 2012.
+```
+SELECT TIMESTAMP '2012-08-31 01:00:00' ;
+
+OR
+
+select '2012-08-31 01:00:00'::timestamp;
+select cast('2012-08-31 01:00:00' as timestamp);
+```
+\
+2.Find the result of subtracting the timestamp '2012-07-30 01:00:00' from the timestamp '2012-08-31 01:00:00'
+```
+SELECT TIMESTAMP'2012-08-31 01:00:00' - TIMESTAMP'2012-07-30 01:00:00' AS INTERVAL ;
 
 ```
+
