@@ -75,7 +75,7 @@ LIMIT 10;
 ```
 
 \
-1.Produce a timestamp for 1 a.m. on the 31st of August 2012.
+8.Return a count of bookings for each month, sorted by month
 ```
 SELECT TIMESTAMP '2012-08-31 01:00:00' ;
 
