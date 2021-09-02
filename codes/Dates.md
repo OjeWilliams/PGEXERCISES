@@ -16,14 +16,20 @@ select cast('2012-08-31 01:00:00' as timestamp);
 SELECT TIMESTAMP'2012-08-31 01:00:00' - TIMESTAMP'2012-07-30 01:00:00' AS INTERVAL ;
 
 ```
+\
+3.Produce a list of all the dates in October 2012. They can be output as a timestamp (with time set to midnight) or a date.
+```
+SELECT GENERATE_SERIES(TIMESTAMP '2012-10-01 00:00:00', TIMESTAMP '2012-10-31 00:00:00',INTERVAL '1 day') AS TS ;
+```
 
 \
-3.Get the day of the month from the timestamp '2012-08-31' as an integer.
+4.Get the day of the month from the timestamp '2012-08-31' as an integer.
 ```
 SELECT EXTRACT(DAY FROM TIMESTAMP'2012-08-31') ;
 ```
+
 \
-4.Work out the number of seconds between the timestamps '2012-08-31 01:00:00' and '2012-09-02 00:00:00'
+5.Work out the number of seconds between the timestamps '2012-08-31 01:00:00' and '2012-09-02 00:00:00'
 ```
 -- first attempt
   SELECT ((DATE_PART('day', '2012-09-02 00:00:00'::timestamp - '2012-08-31 01:00:00'::timestamp) * 24 + 
@@ -44,7 +50,7 @@ SELECT EXTRACT(EPOCH FROM (TIMESTAMP '2012-09-02 00:00:00' - '2012-08-31 01:00:0
 
 ```
 \
-5.For each month of the year in 2012, output the number of days in that month. Format the output as an integer column containing the month of the year, and a second column containing an interval data type.
+6.For each month of the year in 2012, output the number of days in that month. Format the output as an integer column containing the month of the year, and a second column containing an interval data type.
 ```
 -- this took longer than expected. Remember also that when you substract timestamps it returns days as the output
 SELECT EXTRACT(MONTH FROM mymonth.month) AS Month,
@@ -58,14 +64,14 @@ ORDER BY Month ;
 ```
 
 \
-6.For any given timestamp, work out the number of days remaining in the month. The current day should count as a whole day, regardless of the time. Use '2012-02-11 01:00:00' as an example timestamp for the purposes of making the answer. Format the output as a single interval value.
+7.For any given timestamp, work out the number of days remaining in the month. The current day should count as a whole day, regardless of the time. Use '2012-02-11 01:00:00' as an example timestamp for the purposes of making the answer. Format the output as a single interval value.
 ```
 SELECT (DATE_TRUNC('MONTH', time.test) + INTERVAL '1 MONTH')
        - DATE_TRUNC('DAY' , time.test) as left_to_go
 FROM ( SELECT TIMESTAMP '2012-02-11 01:00:00' AS test) AS time ;
 ```
 \
-7.Return a list of the start and end time of the last 10 bookings (ordered by the time at which they end, followed by the time at which they start) in the system.
+8.Return a list of the start and end time of the last 10 bookings (ordered by the time at which they end, followed by the time at which they start) in the system.
 ```
 -- Be careful with this one. When you used the ORDER BY remy that which colums goes first affects the output.
 SELECT starttime, starttime + slots * (INTERVAL '30 minutes') AS endtime
