@@ -112,13 +112,13 @@ FROM(
 SELECT name, mymonth, 
 ROUND(100*(month_slots)/CAST(
                          25 * (CAST((mymonth + INTERVAL '1 month') AS DATE)
-						 - CAST(mymonth AS DATE)) AS numeric),1) AS utilization
+			      - CAST(mymonth AS DATE)) AS numeric),1) AS utilization
 
 FROM(
-		SELECT fac.name AS name, DATE_TRUNC('month', starttime) AS mymonth, SUM(slots) AS month_slots
-		FROM cd.bookings AS book
-		JOIN cd.facilities AS fac ON book.facid = fac.facid
-		GROUP BY name, mymonth
+      SELECT fac.name AS name, DATE_TRUNC('month', starttime) AS mymonth, SUM(slots) AS month_slots
+      FROM cd.bookings AS book
+      JOIN cd.facilities AS fac ON book.facid = fac.facid
+      GROUP BY name, mymonth
     ) AS my_util
 	
 ORDER BY name;
