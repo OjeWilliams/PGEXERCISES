@@ -81,7 +81,16 @@ LIMIT 10;
 ```
 
 \
-9.Work out the utilisation percentage for each facility by month, sorted by name and month, rounded to 1 decimal place. Opening time is 8am, closing time is 8.30pm. You can treat every month as a full month, regardless of if there were some dates the club was not open.
+9.Return a count of bookings for each month, sorted by month
+```
+SELECT DATE_TRUNC('MONTH', starttime) as mymonth, COUNT(slots) 
+FROM cd.bookings
+GROUP BY mymonth
+ORDER BY mymonth ;
+
+```
+\
+10.Work out the utilisation percentage for each facility by month, sorted by name and month, rounded to 1 decimal place. Opening time is 8am, closing time is 8.30pm. You can treat every month as a full month, regardless of if there were some dates the club was not open.
 ```
 -- I had alot of problems with this one. Had to look back at q6 to see how I dealt with substracting months to find the days of each month
 -- First attempt. This gave an error regarding timestamps and I suggested I added explicit type casts
@@ -126,10 +135,5 @@ ORDER BY name;
 ORDER BY name;
 
 ```
-\
-9.Return a count of bookings for each month, sorted by month
-```
-SELECT TIMESTAMP'2012-08-31 01:00:00' - TIMESTAMP'2012-07-30 01:00:00' AS INTERVAL ;
 
-```
 
