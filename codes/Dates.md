@@ -94,7 +94,8 @@ GROUP BY name, mymonth
 ) AS my_util
 ORDER BY name;
 
---Second Attempt. After messing around with casting, this was the result. Still not correct, the numbers are off
+--Second Attempt. After messing around with casting, this was the result. Still not correct, the numbers are off. Specifically mu itlization numbers are all greater than 1
+-- when they should all by decimals because I havent multiplied by 100 yet to get percentage.
 SELECT name, mymonth, ROUND((month_total)/CAST(
                           CAST((mymonth + INTERVAL '1 month') AS DATE)
 			- CAST(mymonth AS DATE) AS numeric),1) AS utilization
