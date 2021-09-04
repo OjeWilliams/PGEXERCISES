@@ -110,12 +110,13 @@ SELECT name, mymonth, ROUND((month_total)/CAST(
 			- CAST(mymonth AS DATE) AS numeric),1) AS utilization
 
 FROM(
-		SELECT fac.name AS name, DATE_TRUNC('month', starttime) AS mymonth, SUM(slots) AS month_total 
-		FROM cd.bookings AS book
-		JOIN cd.facilities AS fac ON book.facid = fac.facid
-		GROUP BY name, mymonth
+     SELECT fac.name AS name, DATE_TRUNC('month', starttime) AS mymonth, SUM(slots) AS month_total 
+     FROM cd.bookings AS book
+     JOIN cd.facilities AS fac ON book.facid = fac.facid
+     GROUP BY name, mymonth
     ) AS my_util
-    
+ ORDER BY name;
+ 
 -- Correct attempt. I realised I was not accounting for the for how many hours in the day were available. It opens at 8am and closes at 8:30pm.. thats 12.5 hours therefore 
 -- 25 half an hour slots. recall that the slots are half an hour increments!!!
 SELECT name, mymonth, 
@@ -129,8 +130,6 @@ FROM(
       JOIN cd.facilities AS fac ON book.facid = fac.facid
       GROUP BY name, mymonth
     ) AS my_util
-	
-ORDER BY name;
 	
 ORDER BY name;
 
