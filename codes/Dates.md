@@ -93,6 +93,21 @@ JOIN cd.facilities AS fac ON book.facid = fac.facid
 GROUP BY name, mymonth
 ) AS my_util
 ORDER BY name;
+
+--Second Attempt. After messing around with casting, this was the result. Still not correct, the numbers are off
+SELECT name, mymonth, ROUND((month_total)/CAST(
+                          CAST((mymonth + INTERVAL '1 month') AS DATE)
+			- CAST(mymonth AS DATE) AS numeric),1) AS utilization
+
+FROM(
+		SELECT fac.name AS name, DATE_TRUNC('month', starttime) AS mymonth, SUM(slots) AS month_total 
+		FROM cd.bookings AS book
+		JOIN cd.facilities AS fac ON book.facid = fac.facid
+		GROUP BY name, mymonth
+    ) AS my_util
+	
+ORDER BY name;
+
 ```
 \
 2.Find the result of subtracting the timestamp '2012-07-30 01:00:00' from the timestamp '2012-08-31 01:00:00'
