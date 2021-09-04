@@ -83,8 +83,16 @@ LIMIT 10;
 \
 9.Work out the utilisation percentage for each facility by month, sorted by name and month, rounded to 1 decimal place. Opening time is 8am, closing time is 8.30pm. You can treat every month as a full month, regardless of if there were some dates the club was not open.
 ```
--- I had alot of problems with this one. Like 
-
+-- I had alot of problems with this one. Had to look back at q6 to see how I dealt with substracting months to find the days of each month
+-- First attempt. This gave an error regarding timestamps and I suggested I added explicit type casts
+SELECT name, mymonth, ROUND((month_total)/(mymonth + INTERVAL '1 month') - mymonth,1)
+FROM(
+SELECT fac.name AS name, DATE_TRUNC('month', starttime) AS mymonth, SUM(slots) AS month_total 
+FROM cd.bookings AS book
+JOIN cd.facilities AS fac ON book.facid = fac.facid
+GROUP BY name, mymonth
+) AS my_util
+ORDER BY name;
 ```
 \
 2.Find the result of subtracting the timestamp '2012-07-30 01:00:00' from the timestamp '2012-08-31 01:00:00'
