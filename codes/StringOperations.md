@@ -3,7 +3,8 @@ All questions can be found [here.](https://pgexercises.com/questions/string/) <b
 1.Output the names of all members, formatted as 'Surname, Firstname'
 
 ```
-SELECT * FROM cd.facilities ;
+-- First attempt
+SELECT CONCAT(surname, ', ' ,firstname) AS name FROM cd.members ;
 ```
 \
 2.You want to print out a list of all of the facilities and their cost to members. How would you retrieve a list of only facility names and costs?
