@@ -13,7 +13,7 @@ SELECT surname || ', ' || firstname AS name FROM cd.members ;
 SELECT CONCAT_WS (', ', surname, firstname) AS name FROM cd.members ;
 ```
 \
-2.You want to print out a list of all of the facilities and their cost to members. How would you retrieve a list of only facility names and costs?
+2.Find all facilities whose name begins with 'Tennis'. Retrieve all columns.?
 
 ```
 SELECT name, membercost FROM cd.facilities ;
