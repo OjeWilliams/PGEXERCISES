@@ -1,7 +1,6 @@
 All questions can be found [here.](https://pgexercises.com/questions/string/) <br>
 \
 1.Output the names of all members, formatted as 'Surname, Firstname'
-
 ```
 -- First attempt
 SELECT CONCAT(surname, ', ' ,firstname) AS name FROM cd.members ;
@@ -14,9 +13,9 @@ SELECT CONCAT_WS (', ', surname, firstname) AS name FROM cd.members ;
 ```
 \
 2.Find all facilities whose name begins with 'Tennis'. Retrieve all columns.?
-
 ```
-SELECT name, membercost FROM cd.facilities ;
+SELECT * FROM cd.facilities
+WHERE name LIKE 'Tennis%' ;
 ```
 \
 3.How can you produce a list of facilities that charge a fee to members?
