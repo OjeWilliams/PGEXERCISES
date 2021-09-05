@@ -8,6 +8,9 @@ SELECT CONCAT(surname, ', ' ,firstname) AS name FROM cd.members ;
 
 -- Second Attmept 
 SELECT surname || ', ' || firstname AS name FROM cd.members ;
+
+-- Third Attempt
+SELECT CONCAT_WS (', ', surname, firstname) AS name FROM cd.members ;
 ```
 \
 2.You want to print out a list of all of the facilities and their cost to members. How would you retrieve a list of only facility names and costs?
