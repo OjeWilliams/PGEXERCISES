@@ -1,6 +1,6 @@
-All questions can be found [here.](https://pgexercises.com/questions/string/ <br>
+All questions can be found [here.](https://pgexercises.com/questions/string/) <br>
 \
-1.How can you retrieve all the information from the cd.facilities table?
+1.Output the names of all members, formatted as 'Surname, Firstname'
 
 ```
 SELECT * FROM cd.facilities ;
