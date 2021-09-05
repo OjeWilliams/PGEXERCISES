@@ -20,8 +20,8 @@ WHERE name LIKE 'Tennis%' ;
 \
 3.Perform a case-insensitive search to find all facilities whose name begins with 'tennis'. Retrieve all columns.
 ```
-SELECT * FROM cd.facilities
-WHERE membercost > 0 ;
+-- First Attempt
+SELECT * FROM cd.facilities WHERE name ILIKE 'Tennis%' ;
 ```
 \
 4.How can you produce a list of facilities that charge a fee to members, and that fee is less than 1/50th of the monthly maintenance cost? Return the facid, facility name, member cost, and monthly maintenance of the facilities in question.
