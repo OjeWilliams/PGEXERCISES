@@ -18,7 +18,7 @@ SELECT * FROM cd.facilities
 WHERE name LIKE 'Tennis%' ;
 ```
 \
-3.How can you produce a list of facilities that charge a fee to members?
+3.Perform a case-insensitive search to find all facilities whose name begins with 'tennis'. Retrieve all columns.
 ```
 SELECT * FROM cd.facilities
 WHERE membercost > 0 ;
