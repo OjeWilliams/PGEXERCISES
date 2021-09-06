@@ -44,6 +44,10 @@ WHERE telephone ~ '[()]' ;
 -- Had to look up padding. The function is LPAD in Postgresql LPAD('string',
 SELECT LPAD(cast(zipcode AS CHAR ), 5,'0') AS zip FROM cd.members
 ORDER BY zip;
+
+-- had to specify how many CHAR
+SELECT LPAD(cast(zipcode AS CHAR(5)), 5,'0') AS zip FROM cd.members
+ORDER BY zip;
 ```
 \
 6.How can you retrieve the details of facilities with ID 1 and 5? Try to do it without using the OR operator.
