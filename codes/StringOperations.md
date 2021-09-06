@@ -27,7 +27,7 @@ SELECT * FROM cd.facilities WHERE name ILIKE 'Tennis%' ;
 select * from cd.facilities where upper(name) like 'TENNIS%'; 
 ```
 \
-4.How can you produce a list of facilities that charge a fee to members, and that fee is less than 1/50th of the monthly maintenance cost? Return the facid, facility name, member cost, and monthly maintenance of the facilities in question.
+4.You've noticed that the club's member table has telephone numbers with very inconsistent formatting. You'd like to find all the telephone numbers that contain parentheses, returning the member ID and telephone number sorted by member ID.
 ```
 SELECT facid, name, membercost, monthlymaintenance FROM cd.facilities
 WHERE membercost > 0
