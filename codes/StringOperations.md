@@ -33,6 +33,10 @@ First attempt
 SELECT memid, telephone FROM cd.members
 WHERE telephone SIMILAR TO '%[()]%' ;
 
+-- Second attempt regualr expression
+SELECT memid, telephone FROM cd.members
+WHERE telephone ~ '[()]' ;
+
 ```
 \
 5.How can you produce a list of all facilities with the word 'Tennis' in their name?
