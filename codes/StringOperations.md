@@ -41,7 +41,9 @@ WHERE telephone ~ '[()]' ;
 \
 5.The zip codes in our example dataset have had leading zeroes removed from them by virtue of being stored as a numeric type. Retrieve all zip codes from the members table, padding any zip codes less than 5 characters long with leading zeroes. Order by the new zip code.
 ```
-
+-- Had to look up padding. The function is LPAD in Postgresql LPAD('string',
+SELECT LPAD(cast(zipcode AS CHAR ), 5,'0') AS zip FROM cd.members
+ORDER BY zip;
 ```
 \
 6.How can you retrieve the details of facilities with ID 1 and 5? Try to do it without using the OR operator.
