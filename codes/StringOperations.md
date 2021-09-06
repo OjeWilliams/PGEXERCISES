@@ -29,9 +29,7 @@ select * from cd.facilities where upper(name) like 'TENNIS%';
 \
 4.You've noticed that the club's member table has telephone numbers with very inconsistent formatting. You'd like to find all the telephone numbers that contain parentheses, returning the member ID and telephone number sorted by member ID.
 ```
-SELECT facid, name, membercost, monthlymaintenance FROM cd.facilities
-WHERE membercost > 0
-AND membercost < ((1/50.0) * monthlymaintenance);
+
 ```
 \
 5.How can you produce a list of all facilities with the word 'Tennis' in their name?
