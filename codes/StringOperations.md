@@ -63,12 +63,7 @@ GROUP BY letter
 ORDER BY letter ;
 ```
 \
-7.How can you produce a list of facilities, with each labelled as 'cheap' or 'expensive' depending on if their monthly maintenance cost is more than $100? Return the name and monthly maintenance of the facilities in question.
+7.The telephone numbers in the database are very inconsistently formatted. You'd like to print a list of member ids and numbers that have had '-','(',')', and ' ' characters removed. Order by member id.
 ```
-SELECT name,
-CASE
-	WHEN monthlymaintenance > 100 THEN 'expensive'
-	ELSE 'cheap'
-END AS COST
-FROM cd.facilities;
+
 ```
