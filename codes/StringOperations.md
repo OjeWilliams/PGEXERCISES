@@ -52,7 +52,12 @@ ORDER BY zip;
 \
 6.You'd like to produce a count of how many members you have whose surname starts with each letter of the alphabet. Sort by the letter, and don't worry about printing out a letter if the count is 0.
 ```
+-- First Attempt
+SELECT SUBSTR(surname,1,1) AS letter, COUNT(*) FROM cd.members
+GROUP BY letter
+ORDER BY letter ;
 
+--
 ```
 \
 7.How can you produce a list of facilities, with each labelled as 'cheap' or 'expensive' depending on if their monthly maintenance cost is more than $100? Return the name and monthly maintenance of the facilities in question.
