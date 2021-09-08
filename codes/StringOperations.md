@@ -65,7 +65,8 @@ ORDER BY letter ;
 \
 7.The telephone numbers in the database are very inconsistently formatted. You'd like to print a list of member ids and numbers that have had '-','(',')', and ' ' characters removed. Order by member id.
 ```
--- After some research I came across REPLACE and REGEXP_REPLACE https://www.postgresqltutorial.com/postgresql-replace/
+-- After some research I came across REPLACE() and REGEXP_REPLACE() https://www.postgresqltutorial.com/postgresql-replace/
+-- At the same link above there is also an explanation for a function .. TRANSLATE()
 
 
 ```
