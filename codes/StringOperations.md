@@ -68,12 +68,14 @@ ORDER BY letter ;
 -- After some research I came across REPLACE() and REGEXP_REPLACE() https://www.postgresqltutorial.com/postgresql-replace/
 -- At the same link above there is also an explanation for a function .. TRANSLATE()
 
--- First Attempt
-SELECT memid, REGEXP_REPLACE(telephone,'[^0-9]', '', 'g') AS telephone
+-- First Attempt. note the gi flag. the i flag ignores case and the g flag ensures all occurences are replaced
+SELECT memid, REGEXP_REPLACE(telephone,'[^0-9]', '', 'gi') AS telephone
 FROM cd.members
 ORDER by memid ;
 
 -- Second Attempt
-
+SELECT memid, TRANSLATE(telephone,'-() ', '') AS telephone
+FROM cd.members
+ORDER by memid ;
 
 ```
