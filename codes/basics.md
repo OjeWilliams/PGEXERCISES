@@ -44,7 +44,7 @@ CASE
 	WHEN monthlymaintenance > 100 THEN 'expensive'
 	ELSE 'cheap'
 END AS COST
-FROM cd.facilities;
+FROM cd.facilities ;
 ```
 \
 8.How can you produce a list of members who joined after the start of September 2012? Return the memid, surname, firstname, and joindate of the members in question.
@@ -86,7 +86,7 @@ FROM(
    SELECT * FROM cd.members
    ORDER BY joindate DESC
    LIMIT 1
-  ) AS Lastjoin;
+  ) AS Lastjoin ;
   
 -- OR
 
