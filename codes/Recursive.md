@@ -5,7 +5,19 @@ All the questions for this section can be found [here.](https://pgexercises.com/
 
 
 ```
-
-
+WITH RECURSIVE myrec(reco) AS 
+	(
+  SELECT 27
+  UNION ALL
+  SELECT mem.recommendedby
+  FROM cd.members AS mem, myrec AS mr
+  WHERE mr.reco IS NOT NULL AND mem.memid = mr.reco
+	)
+SELECT mem.memid AS recommender, mem.firstname, mem.surname
+FROM cd.members AS mem
+JOIN myrec AS mr
+ON mem.memid = mr.reco 
+WHERE mem.memid != 27
+;
 
 ```
