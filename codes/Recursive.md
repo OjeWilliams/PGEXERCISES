@@ -20,4 +20,20 @@ ON mem.memid = mr.reco
 WHERE mem.memid != 27
 ;
 
+OR a more readable Solution
+
+WITH RECURSIVE myrecommender(recommender) AS
+	(SELECT recommendedby FROM cd.members 
+	 WHERE memid = 27
+	 UNION 
+	 SELECT mem.recommendedby FROM myrecommender AS myrec
+	 	JOIN cd.members AS mem 
+	 		ON mem.memid = myrec.recommender
+	 )
+	 	 
+SELECT myrec.recommender, mem.firstname, mem.surname 
+FROM myrecommender AS myrec
+JOIN cd.members AS mem
+ON mem.memid = myrec.recommender
+;
 ```
