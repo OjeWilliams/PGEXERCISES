@@ -20,7 +20,7 @@ ON mem.memid = mr.reco
 WHERE mem.memid != 27
 ;
 
-OR a more readable Solution
+-- OR a more readable Solution
 
 WITH RECURSIVE myrecommender(recommender) AS
 	(SELECT recommendedby FROM cd.members 
